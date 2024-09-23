@@ -3,12 +3,12 @@
 An editable TextKit 2 backed UITextView is unusable for large documents because selection/caret positioning behaviour is incorrect. The user will tap a word to begin editing, but the caret will be shown in an undefined location, often dozens of paragraphs below the selected content. 
 
 To reproduce:
-1. Create a UITextView backed by a standard TextKit 2 stack and a large amount of text (50,000+ words)
+1. Run the sample project on the iOS simulator or device.
 2. Scroll quickly through the text view (at least 20% of the way down)
 3. Tap once to select a position in the document.
 
 Expected:
-The caret appears at the location the user tapped, and UITextView.selectedRange is the range of the text at the location of the tap. This is the behaviour of TextKit 1 based UITextViews.
+The caret appears at the location the user tapped, and UITextView.selectedRange is the range of the text at the location of the tap. This is the behaviour of TextKit 1 based UITextViews (you can test this by uncommenting the workaround in EditorViewController).
 
 Actual:
 The caret is positioned in an undefined location, and the selectedRange is different to the range at the location of the tap, often completely off-screen and with selectedRange.location off by several thousand. There is no pattern to this magnitude of the discrepancy. 
