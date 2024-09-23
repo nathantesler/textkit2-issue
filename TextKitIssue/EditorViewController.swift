@@ -21,7 +21,7 @@ class EditorViewController: UIViewController {
         textView.keyboardDismissMode = .interactive
         
         // WORKAROUND: Uncomment to trigger conversion to TextKit 1, which resolves this issue
-        _ = textView.layoutManager
+        //_ = textView.layoutManager
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textView)
